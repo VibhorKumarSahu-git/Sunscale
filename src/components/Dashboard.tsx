@@ -201,7 +201,7 @@ export default function Dashboard({ stats, applianceList }: DashboardProps) {
           </div>
           
           {applianceList.length > 0 ? (
-            <div className="h-[280px]">
+            <div className="h-[280px] xl:h-[340px]">
               <Doughnut data={doughnutData} options={doughnutOptions} />
             </div>
           ) : (

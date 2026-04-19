@@ -100,10 +100,10 @@ function App() {
   const [applianceList, setApplianceList] = useState<Appliance[]>(defaultAppliances);
   const [currentTab, setCurrentTab] = useState<TabType>('Dashboard');
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  
+
   // Location-based efficiency state
   const [selectedCity, setSelectedCity] = useState<string>('gurugram');
-  
+
   // Net metering state
   const [netMeteringEnabled, setNetMeteringEnabled] = useState<boolean>(false);
 
@@ -128,7 +128,7 @@ function App() {
   }, []);
 
   const handleUpdateAppliance = useCallback((updatedAppliance: Appliance) => {
-    setApplianceList(prev => 
+    setApplianceList(prev =>
       prev.map(a => a.id === updatedAppliance.id ? updatedAppliance : a)
     );
   }, []);
@@ -149,7 +149,7 @@ function App() {
         return <Dashboard stats={stats} applianceList={applianceList} />;
       case 'Calculator':
         return (
-          <Calculator 
+          <Calculator
             appliances={applianceList}
             onAddAppliance={handleAddAppliance}
             onUpdateAppliance={handleUpdateAppliance}
@@ -160,8 +160,8 @@ function App() {
         );
       case 'Solar Planner':
         return (
-          <SolarPlanner 
-            stats={stats} 
+          <SolarPlanner
+            stats={stats}
             applianceList={applianceList}
             selectedCity={selectedCity}
             setSelectedCity={setSelectedCity}
@@ -171,7 +171,7 @@ function App() {
         );
       case 'Environmental Impact':
         return (
-          <EnvironmentalImpact 
+          <EnvironmentalImpact
             stats={stats}
             applianceList={applianceList}
             selectedCity={selectedCity}
@@ -185,7 +185,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-animated flex relative overflow-hidden text-slate-100">
+    <div className="min-h-screen bg-animated relative overflow-hidden text-slate-100">
       {/* Cursor Trail */}
       <CursorTrail />
 
@@ -218,8 +218,9 @@ function App() {
       />
 
       {/* Main Content */}
-      <main className="flex-1 lg:ml-0 min-h-screen relative z-10">
-        <div className="p-4 lg:p-8 pt-16 lg:pt-8">
+      {/* Main Content */}
+      <main className="min-h-screen relative z-10 w-full lg:pl-64 transition-all duration-300">
+        <div className="p-4 lg:p-8 xl:p-10 pt-16 lg:pt-8 max-w-[1600px] mx-auto">
           <div className="tab-content">
             {renderContent()}
           </div>

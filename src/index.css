@@ -505,9 +505,7 @@ body {
 }
 
 /* Sidebar right-edge glow */
-.sidebar-glow {
-  position: relative;
-}
+
 
 .sidebar-glow::after {
   content: '';
