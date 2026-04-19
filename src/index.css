@@ -1,0 +1,731 @@
+@import "tailwindcss";
+
+/* ===== GLOBAL BASE STYLES FOR CONTRAST ===== */
+html {
+  color: #e2e8f0; /* slate-200 base text for AAA contrast */
+}
+
+body {
+  color: #e2e8f0;
+  background: #020617;
+}
+
+/* ===== CUSTOM ANIMATIONS ===== */
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scale In Animation (for modals) */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Slide In from Left */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In from Right */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In from Bottom */
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide In from Top */
+@keyframes slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gentle Bounce */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Pulse Glow - Cyber Cyan */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 211, 238, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+  }
+}
+
+/* Pulse Glow - Amber */
+@keyframes pulse-glow-amber {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(252, 211, 77, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(252, 211, 77, 0.4);
+  }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Rotate Animation */
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Gradient Flow */
+@keyframes gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Data Glitch Effect */
+@keyframes data-glitch {
+  0% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.7); }
+  25% { text-shadow: 0 0 12px rgba(34, 211, 238, 1), 0 0 20px rgba(34, 211, 238, 0.5); }
+  50% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.7); }
+  75% { text-shadow: 0 0 12px rgba(34, 211, 238, 1), 0 0 25px rgba(34, 211, 238, 0.4); }
+  100% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.7); }
+}
+
+/* Electric scan line on hover */
+@keyframes electric-scan {
+  0% { top: 0%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Stagger delay utilities */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease-out forwards;
+}
+
+.animate-slide-in-bottom {
+  animation: slide-in-bottom 0.4s ease-out forwards;
+}
+
+.animate-slide-in-top {
+  animation: slide-in-top 0.4s ease-out forwards;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow-amber {
+  animation: pulse-glow-amber 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-flow 3s ease infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Click animation */
+.click-scale {
+  transition: transform 0.15s ease-out;
+}
+
+.click-scale:active {
+  transform: scale(0.95);
+}
+
+/* Hover lift effect - Cyber */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px -10px rgba(34, 211, 238, 0.2);
+}
+
+/* Card hover effect - Cyber Glassmorphism */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 8px 30px -8px rgba(34, 211, 238, 0.15), 0 0 15px rgba(34, 211, 238, 0.08);
+}
+
+/* Button press effect */
+.btn-press {
+  transition: all 0.15s ease;
+}
+
+.btn-press:hover {
+  transform: translateY(-1px);
+}
+
+.btn-press:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Ripple button */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+
+.btn-ripple:active::after {
+  transform: translate(-50%, -50%) scale(40);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 211, 238, 0.12);
+}
+
+.glass-card:hover {
+  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1), 0 0 12px rgba(34, 211, 238, 0.06);
+}
+
+/* Neon text glow - Cyan */
+.neon-cyan {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(34, 211, 238, 0.7), 0 0 12px rgba(34, 211, 238, 0.35);
+}
+
+/* Neon text glow - Amber */
+.neon-amber {
+  color: #fcd34d;
+  text-shadow: 0 0 6px rgba(252, 211, 77, 0.7), 0 0 12px rgba(252, 211, 77, 0.35);
+}
+
+/* Icon glow backgrounds */
+.icon-glow-cyan {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.15);
+}
+
+.icon-glow-amber {
+  background: radial-gradient(circle, rgba(252, 211, 77, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(252, 211, 77, 0.15);
+}
+
+.icon-glow-emerald {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.15);
+}
+
+.icon-glow-red {
+  background: radial-gradient(circle, rgba(248, 113, 113, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.15);
+}
+
+.icon-glow-blue {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.15);
+}
+
+.icon-glow-purple {
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.15);
+}
+
+/* Electric border hover */
+.electric-hover {
+  position: relative;
+}
+
+.electric-hover:hover {
+  outline: 2px solid rgba(34, 211, 238, 0.5);
+  outline-offset: 2px;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.15);
+}
+
+/* Background gradient animation - Deep Space Blue */
+.bg-animated {
+  background: radial-gradient(ellipse at top, rgba(30, 58, 138, 0.35), #020617 50%, #000000);
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.bg-animated::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(17, 24, 39, 0.8) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Particles effect for background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(34, 211, 238, 0.25);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(34, 211, 238, 0.3);
+}
+
+.particle:nth-child(even) {
+  background: rgba(252, 211, 77, 0.2);
+  box-shadow: 0 0 6px rgba(252, 211, 77, 0.25);
+}
+
+/* Text gradient animation - Cyber */
+.text-gradient-animated {
+  background: linear-gradient(90deg, #22d3ee, #67e8f9, #a5f3fc, #67e8f9, #22d3ee);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 3s linear infinite;
+}
+
+/* Smooth number counter effect */
+.number-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Delete item animation */
+@keyframes delete-slide {
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.animate-delete {
+  animation: delete-slide 0.3s ease-out forwards;
+}
+
+/* Add item animation */
+@keyframes add-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+  }
+  50% {
+    transform: scale(1.02) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-add {
+  animation: add-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Tab transition */
+.tab-content {
+  animation: fade-in 0.3s ease-out, slide-in-bottom 0.3s ease-out;
+}
+
+/* Cursor trail particle */
+.cursor-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.6);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Sidebar right-edge glow */
+.sidebar-glow {
+  position: relative;
+}
+
+.sidebar-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(34, 211, 238, 0.3) 20%,
+    rgba(34, 211, 238, 0.5) 50%,
+    rgba(34, 211, 238, 0.3) 80%,
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.2), 0 0 24px rgba(34, 211, 238, 0.1);
+}
+
+/* Active sidebar tab outer glow */
+.sidebar-active-glow {
+  box-shadow: 0 0 20px 6px rgba(34, 211, 238, 0.2), inset 0 0 10px rgba(34, 211, 238, 0.05);
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Hide non-essential elements */
+  .print\:hidden,
+  button,
+  .sidebar,
+  nav {
+    display: none !important;
+  }
+
+  /* Reset background for print */
+  body,
+  html {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  /* Main container adjustments */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Card styling for print */
+  .glass-card,
+  .bg-slate-900,
+  .bg-slate-950,
+  .bg-slate-800 {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Text colors for print */
+  .text-white,
+  .text-slate-100,
+  .text-slate-200,
+  .text-slate-300,
+  .text-slate-400 {
+    color: #333 !important;
+  }
+
+  .text-cyan-400,
+  .text-cyan-300 {
+    color: #0891b2 !important;
+  }
+
+  .text-amber-400,
+  .text-amber-300 {
+    color: #d97706 !important;
+  }
+
+  .text-emerald-400,
+  .text-green-400 {
+    color: #059669 !important;
+  }
+
+  .text-red-400 {
+    color: #dc2626 !important;
+  }
+
+  .text-blue-400 {
+    color: #2563eb !important;
+  }
+
+  .text-purple-400 {
+    color: #7c3aed !important;
+  }
+
+  /* Report Header */
+  .space-y-6 > div:first-child::before {
+    content: "Solar Feasibility Report";
+    display: block;
+    font-size: 24pt;
+    font-weight: bold;
+    color: #059669;
+    margin-bottom: 8pt;
+    border-bottom: 2px solid #059669;
+    padding-bottom: 8pt;
+  }
+
+  .space-y-6 > div:first-child::after {
+    content: "Generated on " attr(data-date) " | CleanTech Energy Dashboard";
+    display: block;
+    font-size: 10pt;
+    color: #666;
+    margin-top: 4pt;
+  }
+
+  /* Page break controls */
+  .grid {
+    page-break-inside: avoid;
+  }
+
+  .rounded-xl {
+    page-break-inside: avoid;
+    margin-bottom: 12pt;
+  }
+
+  /* Gradients become solid for print */
+  .bg-gradient-to-r {
+    background: #f0fdf4 !important;
+  }
+
+  /* Border colors */
+  .border-cyan-500\/20,
+  .border-slate-800 {
+    border-color: #ccc !important;
+  }
+
+  /* Charts */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Footer for print */
+  @page {
+    margin: 1cm;
+    @bottom-center {
+      content: "Page " counter(page) " of " counter(pages);
+    }
+  }
+
+  /* Ensure content is visible */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Disable animations, glows, and text-shadows for print */
+  * {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR - Cyber ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee40;
+}
+
+/* ===== BASE TRANSITIONS ===== */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Exclude transform from base transitions to allow custom transform animations */
+button, a, .card-hover, .hover-lift, .btn-press, .click-scale {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+
+/* Remove transitions for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selection color - Cyber */
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: white;
+}
+
+/* Focus ring - Cyber Cyan */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
