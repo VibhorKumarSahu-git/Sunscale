@@ -131,7 +131,7 @@ export default function Sidebar({ currentTab, setCurrentTab, isMobileOpen, setIs
         <div className="p-4 border-t border-cyan-500/10">
           <div className="px-4 py-3 bg-white/[0.03] rounded-lg">
             <p className="text-xs text-slate-400">Version 2026.1</p>
-            <p className="text-xs text-slate-400">© 2026 CleanTech</p>
+            <p className="text-xs text-slate-400">© 2026 SunScale</p>
           </div>
         </div>
       </aside>
